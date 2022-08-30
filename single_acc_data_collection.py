@@ -23,7 +23,7 @@ def collect_data(Device_name = "cDAQ1Mod1", sensitivity = 100, min_val = -5, max
     #         database="mydatabase"
 
     
-    database_connection = sqlalchemy.create_engine('mysql+pymysql://root:@localhost:3306/accelerometer')
+#     database_connection = sqlalchemy.create_engine('mysql+pymysql://root:@localhost:3306/accelerometer')
 
     samples_to_acq = sample_rate * time_req
     
@@ -69,6 +69,6 @@ def collect_data(Device_name = "cDAQ1Mod1", sensitivity = 100, min_val = -5, max
         # Saving the data into a CSV file
         df = pd.DataFrame(data, index = pd.date_range(start = start,end = end, periods=samples_to_acq), columns=['X-Axis (mG)', 'Y-Axis (mG)', 'Z-Axis (mG)'])
         df.index.name = 'Timestamp'
-        # df.to_csv('./QuickMill_out.csv')
+        df.to_csv('./QuickMill_out.csv')
         # Write data in sql database
-        df.to_sql(con=database_connection, name=f'{Device_name}', if_exists='append')
+#         df.to_sql(con=database_connection, name=f'{Device_name}', if_exists='append')
