@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import sqlalchemy
 
-
+#
 def collect_data(Device_name = "cDAQ1Mod1", sensitivity = 100, min_val = -5, max_val = 5, Ch00_name = 'A00', Ch01_name = 'A01', Ch02_name = 'A02', sample_rate = 12800, time_req = 10, cont_mode = AcquisitionType.FINITE):
     
     # Setting up database connection
